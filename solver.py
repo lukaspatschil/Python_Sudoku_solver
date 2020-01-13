@@ -48,12 +48,12 @@ def nextSpace(board):
 def printBoard(board):
     for i in range(len(board)):
         if i % 3 == 0 and i != 0:
-            for k in range(len(board)):
-                print(" - ", end = "")
-            print("")
+            for k in range((len(board) // 3)):
+                print("- - -   ", end = "")
+            print("", end = "\n")
         for j in range(len(board[0])):
-            if j % 3 == 0:
-                print(" | ", end = "")
+            if j % 3 == 0 and j != 0:
+                print("| ", end = "")
 
             if j == 8:
                 print(board[i][j], end = "\n")
