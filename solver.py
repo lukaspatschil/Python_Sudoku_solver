@@ -77,4 +77,3 @@ def main():
     print("It took " + str(iterations) + " iterations to finish the job")
 
 iterations = 0
-main()
