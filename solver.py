@@ -1,4 +1,8 @@
+#solver.py
+import time
+
 def solveSudoku(board):
+    global iterations
     pos = nextSpace(board)
     if not pos:
         return True
@@ -8,6 +12,7 @@ def solveSudoku(board):
     for i in range(1, 10):
         if isValid(board, pos, i):
             board[row][col] = i
+            iterations += 1
 
             if solveSudoku(board):
                 return True
@@ -120,7 +125,14 @@ def main():
         [9, 7, 0, 5, 0, 0, 0, 0, 0]
     ]
 
+    startTime = time.time()
+
     if solveSudoku(unsolveableBoard):
+        endTime = time.time()
         printBoard(unsolveableBoard)
 
+    print("Finished in: " + str(round(endTime - startTime, 3)) + " secounds")
+    print("It took " + str(iterations) + " iterations to finish the job")
+
+iterations = 0
 main()
